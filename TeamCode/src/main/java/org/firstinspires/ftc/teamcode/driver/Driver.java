@@ -1,19 +1,17 @@
 package org.firstinspires.ftc.teamcode.driver;
 
-import static android.os.SystemClock.sleep;
-
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 
 import org.firstinspires.ftc.teamcode.shared.MotionHardware;
+
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 @TeleOp(name = "Drive", group = "TeleOp2Driver")
@@ -255,7 +253,8 @@ public class Driver extends LinearOpMode {
                         moveArmMotorToPosition(ARM_DRIVE_POS, 2.6);
                     }else if (gamepad2.x) {
                         wristServo.setPosition(WRIST_DROP_POS_LOW);
-                        moveArmMotorToPosition(ARM_DROP_POS_LOW, 2);
+                        //moveArmMotorToPosition(ARM_DROP_POS_LOW, 2);
+                        moveArmMotorToPositionProgBrake(ARM_DROP_POS_LOW, 2);
                     }else if (gamepad1.b) {
                         // move to 0 degrees.
                         wristServo.setPosition(WRIST_FORWARD_DROP_POS_HIGH);
@@ -309,6 +308,80 @@ public class Driver extends LinearOpMode {
         armMotor.setPower(ARM_SPEED); // Set your desired power
         while ((armMotor.isBusy()) && (runtime.seconds() < timeoutS)) {
 
+            telemetry.addData("Running to", "%7d", position);
+            telemetry.addData("Currently at", "%7d", armMotor.getCurrentPosition());
+            telemetry.update();
+        }
+        armMotor.setPower(0); // Stop the motor once the position is reached
+        armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    private void moveArmMotorToPositionProgBrake(int position, double timeoutS) {
+        ElapsedTime runtime = new ElapsedTime();
+        int currPosition = armMotor.getCurrentPosition();
+        int progBrakeStartPosition = position < currPosition ?
+                (int)(position + ((currPosition - position)*.1)) :  //moving below currPosition
+                (int)(position - ((position - currPosition)*.1));   //moving above currPosition
+
+        HashMap<Integer, Double> brakeMap = new HashMap<Integer, Double>();
+
+        int stepIncrement = position < currPosition ?
+                (int)(((currPosition - position)*.1)/5) :
+                (int)(((position - currPosition)*.1)/5);
+
+        int brakePos1 = position < currPosition ?
+                position + (stepIncrement*5) :
+                position - (stepIncrement*5);
+        brakeMap.put(brakePos1, 0.95);
+        int brakePos2 = position < currPosition ?
+                position + (stepIncrement*4) :
+                position - (stepIncrement*4);
+        brakeMap.put(brakePos2, 0.90);
+        int brakePos3 = position < currPosition ?
+                position + (stepIncrement*3) :
+                position - (stepIncrement*3);
+        brakeMap.put(brakePos3, 0.85);
+        int brakePos4 = position < currPosition ?
+                position + (stepIncrement*2) :
+                position - (stepIncrement*2);
+        brakeMap.put(brakePos4, 0.80);
+
+
+        runtime.reset();
+        armMotor.setTargetPosition(position);
+        armMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        armMotor.setPower(ARM_SPEED); // Set your desired power
+        while ((armMotor.isBusy()) && (runtime.seconds() < timeoutS)) {
+
+            if(position < currPosition) {
+                if (armMotor.getCurrentPosition() < progBrakeStartPosition) {
+                    int currPos = armMotor.getCurrentPosition();
+                    AtomicInteger distance = new AtomicInteger(10000);
+                    AtomicInteger idx = new AtomicInteger();
+                    brakeMap.forEach((key, value) -> {
+                        int cdistance = Math.abs(key - currPos);
+                        if(cdistance < distance.get()) {
+                            idx.set(key);
+                            distance.set(cdistance);
+                        }
+                    });
+                    armMotor.setPower(brakeMap.get(idx));
+                }
+            } else {
+                if (armMotor.getCurrentPosition() > progBrakeStartPosition) {
+                    int currPos = armMotor.getCurrentPosition();
+                    AtomicInteger distance = new AtomicInteger(10000);
+                    AtomicInteger idx = new AtomicInteger();
+                    brakeMap.forEach((key, value) -> {
+                        int cdistance = Math.abs(key - currPos);
+                        if(cdistance < distance.get()) {
+                            idx.set(key);
+                            distance.set(cdistance);
+                        }
+                    });
+                    armMotor.setPower(brakeMap.get(idx));
+                }
+            }
             telemetry.addData("Running to", "%7d", position);
             telemetry.addData("Currently at", "%7d", armMotor.getCurrentPosition());
             telemetry.update();
