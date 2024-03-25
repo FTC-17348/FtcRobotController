@@ -152,10 +152,10 @@ public class MotionHardware {
 
         leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
-        //dropper.setPosition(DROPPER_LOAD_PIXEL);
+        dropper.setPosition(DROPPER_LOAD_PIXEL);
         runtime.reset();
 
-        // Dropper and Arm/Gripper mode will load a pixel into the grippers
+        //Dropper and Arm/Gripper mode will load a pixel into the grippers
         wrist.setPosition(WRIST_LOAD_PIXEL);
         sleep(3000);
 
@@ -166,10 +166,10 @@ public class MotionHardware {
         if(globalConfig.getActiveDeliveryMode() == GlobalConfig.AUTONOMOUS_DELIVERY_MODES.DROPPER) {
             dropper.setPosition(DROPPER_LOAD_PIXEL);
         }
-        //wrist.setPosition(WRIST_DROP_PIXEL);
+        wrist.setPosition(WRIST_DROP_PIXEL);
 
 
-        //dropper.setPosition(DROPPER_DROP_PIXEL);
+        dropper.setPosition(DROPPER_DROP_PIXEL);
 
 
 
