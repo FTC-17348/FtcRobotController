@@ -17,6 +17,7 @@ import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 
+import java.lang.annotation.Annotation;
 import java.util.Locale;
 
 public class MotionHardware {
@@ -48,11 +49,11 @@ public class MotionHardware {
     public static double wristLeft = 1;
 
 
-    public static double LEFT_GRIPPER_OPEN = 0.0;
-    public static double RIGHT_GRIPPER_OPEN = 0.3;
-    public static double LEFT_GRIPPER_CLOSE = 0.35;
-    public static double RIGHT_GRIPPER_CLOSE = 0.25;
-    public static double WRIST_LOAD_PIXEL = -1;
+    public static double LEFT_GRIPPER_OPEN = 0.9;
+    public static double RIGHT_GRIPPER_OPEN = 0.1;
+    public static double LEFT_GRIPPER_CLOSE = 2.2;
+    public static double RIGHT_GRIPPER_CLOSE = -1.1;
+    public static double WRIST_LOAD_PIXEL = -0.8;
     public static double WRIST_DROP_PIXEL = 1;
     public static double DROPPER_LOAD_PIXEL = 0.48;
     public static double DROPPER_DROP_PIXEL = -1.0;
@@ -145,31 +146,33 @@ public class MotionHardware {
         wrist = myOpMode.hardwareMap.servo.get("wristServo");
         dropper = myOpMode.hardwareMap.servo.get("dropperServo");
 
-        moveArm(.5, 5, 5);
-
-        //wrist.setPosition(WRIST_LOAD_PIXEL);
-
+        runtime.reset();
+        moveArmMotorToPosition(-830, 1);
 
         leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
-        dropper.setPosition(DROPPER_LOAD_PIXEL);
-        runtime.reset();
 
         //Dropper and Arm/Gripper mode will load a pixel into the grippers
-        wrist.setPosition(WRIST_LOAD_PIXEL);
         sleep(3000);
 
         leftGripper.setPosition(LEFT_GRIPPER_CLOSE); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_CLOSE); // Adjust the position value as needed
         sleep(1000);
 
-        if(globalConfig.getActiveDeliveryMode() == GlobalConfig.AUTONOMOUS_DELIVERY_MODES.DROPPER) {
+        Annotation[] annots = this.myOpMode.getClass().getAnnotations();
+        for (int i = 0; i < annots.length; i++) {
+            if(annots[i].toString().contains("Autonomous")) {
+                GlobalConfig.isAutonomous = true;
+            }
+        }
+
+        if(globalConfig.getActiveDeliveryMode() == GlobalConfig.AUTONOMOUS_DELIVERY_MODES.DROPPER &&
+        GlobalConfig.isAutonomous == true) {
             dropper.setPosition(DROPPER_LOAD_PIXEL);
         }
-        wrist.setPosition(WRIST_DROP_PIXEL);
 
+        moveArmMotorToPosition(-10, 1);
 
-        dropper.setPosition(DROPPER_DROP_PIXEL);
 
 
 

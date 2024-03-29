@@ -25,6 +25,8 @@ public class GlobalConfig {
         DROPPER
     }
 
+    public static boolean isAutonomous = false;
+
     private AUTONOMOUS_DELIVERY_MODES activeDeliveryMode;
 
     public AUTONOMOUS_DELIVERY_MODES getActiveDeliveryMode() {

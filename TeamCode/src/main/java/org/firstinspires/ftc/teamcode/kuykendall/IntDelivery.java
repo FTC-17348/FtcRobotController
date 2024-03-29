@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.kuykendall;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 
+@Disabled
 @TeleOp(name="IntDelivery", group="Test")
 public class IntDelivery extends OpMode {
 

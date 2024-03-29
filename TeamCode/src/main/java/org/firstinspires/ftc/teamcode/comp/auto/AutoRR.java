@@ -52,44 +52,44 @@ public class AutoRR extends LinearOpMode {
             switch(propPosition) {
                 case MIDDLE:
                     // Dropper Mode
-                    robot.moveRobot(.5, -15, 10);
+                    robot.moveRobot(.5, -16, 10);
                     robot.dropPixel();
                     sleep(1000);
-                    robot.moveRobot(.5, 2, 10);
-                    robot.turnRobot(Direction.LEFT, 13, .5, 10);
-                    robot.moveRobot(.5, 21, 10);
+                    robot.moveRobot(.5, 3, 10);
+                    robot.turnRobot(Direction.LEFT, 12, .5, 10);
+                    robot.moveRobot(.5, 22, 10);
                     robot.moveArmMotorToPosition(-1200, 10);
-                    robot.moveRobot(.5, -3, 10);
-                    robot.strafeWithTime(.5, 180, 2);
+                    robot.moveRobot(.5, -4, 10);
+                    robot.strafeWithTime(.5, 180, 3);
                     break;
                 case RIGHT:
                     //Dropper Mode
-                    robot.moveRobot(.5, -13, 10);
-                    robot.turnRobot(Direction.RIGHT, 7, .5, 10);
+                    robot.moveRobot(.5, -14, 10);
+                    robot.turnRobot(Direction.RIGHT, 6, .5, 10);
                     robot.dropPixel();
+                    robot.moveRobot(.5, 4, 10);
+                    robot.turnRobot(Direction.LEFT, 12, .5, 10);
                     robot.moveRobot(.5, 3, 10);
-                    robot.turnRobot(Direction.LEFT, 13, .5, 10);
-                    robot.moveRobot(.5, 2, 10);
-                    robot.turnRobot(Direction.LEFT, 6.5, .5, 10);
-                    robot.moveRobot(.5, 22, 10);
+                    robot.turnRobot(Direction.LEFT, 5.5, .5, 10);
+                    robot.moveRobot(.5, 23, 10);
                     robot.moveArmMotorToPosition(-1200, 10);
-                    robot.moveRobot(.5, -3, 10);
-                    robot.strafeWithTime(.5, 180, 2);
+                    robot.moveRobot(.5, -4, 10);
+                    robot.strafeWithTime(.5, 180, 3);
                     break;
                 default:
                     //Dropper Mode
-                    robot.moveRobot(.5, -13, 10);
-                    robot.turnRobot(Direction.LEFT, 9, .5, 10);
-                    robot.moveRobot(.5, -3, 10);
+                    robot.moveRobot(.5, -14, 10);
+                    robot.turnRobot(Direction.LEFT, 8, .5, 10);
+                    robot.moveRobot(.5, -4, 10);
                     robot.dropPixel();
-                    robot.moveRobot(.5, 2, 10);
-                    robot.turnRobot(Direction.LEFT, 6, .5, 10);
-                    robot.moveRobot(.5, 9, 10);
-                    robot.turnRobot(Direction.RIGHT, 3, .5, 10);
-                    robot.moveRobot(.5, 15, 10);
+                    robot.moveRobot(.5, 3, 10);
+                    robot.turnRobot(Direction.LEFT, 5, .5, 10);
+                    robot.moveRobot(.5, 10, 10);
+                    robot.turnRobot(Direction.RIGHT, 2, .5, 10);
+                    robot.moveRobot(.5, 16, 10);
                     robot.moveArmMotorToPosition(-1200, 10);
-                    robot.moveRobot(.5, -3, 10);
-                    robot.strafeWithTime(.5, 180, 2);
+                    robot.moveRobot(.5, -4, 10);
+                    robot.strafeWithTime(.5, 180, 3);
                     break;
             }
 

@@ -39,21 +39,21 @@ public class AutoBR extends LinearOpMode {
 
             switch(propPosition) {
                 case MIDDLE:
-                    robot.moveRobot(.5, -15, 10);
+                    robot.moveRobot(.5, -16, 10);
                     robot.dropPixel();
                     sleep(1000);
                     break;
                 case RIGHT:
                     //Dropper Mode
-                    robot.moveRobot(.5, -13, 10);
-                    robot.turnRobot(Direction.RIGHT, 7, .5, 10);
+                    robot.moveRobot(.5, -14, 10);
+                    robot.turnRobot(Direction.RIGHT, 6, .5, 10);
                     robot.dropPixel();
                     break;
                 default:
                     //Dropper Mode
-                    robot.moveRobot(.5, -13, 10);
-                    robot.turnRobot(Direction.LEFT, 9, .5, 10);
-                    robot.moveRobot(.5, -4, 10);
+                    robot.moveRobot(.5, -14, 10);
+                    robot.turnRobot(Direction.LEFT, 8, .5, 10);
+                    robot.moveRobot(.5, -5, 10);
                     robot.dropPixel();
                     break;
             }
