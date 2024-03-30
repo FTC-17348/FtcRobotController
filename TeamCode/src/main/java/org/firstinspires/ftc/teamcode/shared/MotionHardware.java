@@ -55,11 +55,13 @@ public class MotionHardware {
     public static double RIGHT_GRIPPER_CLOSE = -1.1;
     public static double WRIST_LOAD_PIXEL = -0.8;
     public static double WRIST_DROP_PIXEL = 1;
-    public static double DROPPER_LOAD_PIXEL = 0.48;
+    public static double DROPPER_LOAD_PIXEL = 0.45;
     public static double DROPPER_DROP_PIXEL = -1.0;
 
     static final double ARM_SPEED = 1.0;
-    static final int ARM_DROP_POS_LOW = -4530;
+
+    static final double WRIST_POS_LOW = 0.85;
+    static final int ARM_DROP_POS_LOW = -4520;
     static final int ARM_DROP_POS_HIGH = -3550;
     static final int ARM_DRIVE_POS = -800;
     static final int ARM_INTAKE_POS = 25;
@@ -147,6 +149,7 @@ public class MotionHardware {
         dropper = myOpMode.hardwareMap.servo.get("dropperServo");
 
         runtime.reset();
+        //moveArmMotorToPosition(-830, 1);
         moveArmMotorToPosition(-830, 1);
 
         leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
@@ -171,7 +174,7 @@ public class MotionHardware {
             dropper.setPosition(DROPPER_LOAD_PIXEL);
         }
 
-        moveArmMotorToPosition(-10, 1);
+        //moveArmMotorToPosition(-10, 1);
 
 
 
@@ -550,13 +553,21 @@ public class MotionHardware {
             myOpMode.telemetry.update();
         }
 
-        wrist.setPosition(0.80);
-        sleep(1000);
-        leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
-        rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
+        //wrist.setPosition(0.80);
+        //sleep(1000);
+        //leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
+        //rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
         sleep(3000);
         armMotor.setPower(0); // Stop the motor once the position is reached
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void dropPixelBackBoard() {
+        wrist.setPosition(0.85);
+        sleep(1000);
+        leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
+        rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
+
     }
 
     public void navToTag(AprilTagDetection desiredTag, int DESIRED_DISTANCE) {
