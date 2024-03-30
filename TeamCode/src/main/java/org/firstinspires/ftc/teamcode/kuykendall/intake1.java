@@ -1,11 +1,13 @@
 package org.firstinspires.ftc.teamcode.kuykendall;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
         import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
         import com.qualcomm.robotcore.hardware.Servo;
         import com.qualcomm.robotcore.hardware.CRServo;
 
-@TeleOp(name="IntakeTest", group="Test")
+        @Disabled
+        @TeleOp(name="IntakeTest", group="Test")
 public class intake1 extends OpMode {
 
     private Servo wristServo;

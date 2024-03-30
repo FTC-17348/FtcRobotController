@@ -4,6 +4,7 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.tel
 
 import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.shared.GlobalConfig;
@@ -11,7 +12,7 @@ import org.firstinspires.ftc.teamcode.shared.GlobalConfig.ALLIANCE_POS;
 import org.firstinspires.ftc.teamcode.shared.GlobalConfig.ALLIANCE_COL;
 import org.firstinspires.ftc.teamcode.shared.MotionHardware;
 
-@Config
+@Disabled
 @Autonomous(name = "Auto Test", group = "Test and Calibration")
 public class AutoTest extends LinearOpMode {
     public ALLIANCE_POS alliancePos = ALLIANCE_POS.RIGHT;
