@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-@Disabled
+//@Disabled
 @TeleOp(name="BeastDrive", group="TeleOp")
 @Config
 public class BeastDrive extends OpMode {
