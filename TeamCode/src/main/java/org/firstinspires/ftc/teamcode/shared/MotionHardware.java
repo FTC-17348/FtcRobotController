@@ -49,14 +49,15 @@ public class MotionHardware {
     public static double wristLeft = 1;
 
 
-    public static double LEFT_GRIPPER_OPEN = 0.9;
-    public static double RIGHT_GRIPPER_OPEN = 0.1;
-    public static double LEFT_GRIPPER_CLOSE = 2.2;
-    public static double RIGHT_GRIPPER_CLOSE = -1.1;
+    public static double LEFT_GRIPPER_OPEN = 0.0;
+    public static double RIGHT_GRIPPER_OPEN = 0.4;
+    public static double LEFT_GRIPPER_CLOSE = 0.4;
+    public static double RIGHT_GRIPPER_CLOSE = 0.25;
     public static double WRIST_LOAD_PIXEL = -0.8;
     public static double WRIST_DROP_PIXEL = 1;
-    public static double DROPPER_LOAD_PIXEL = 0.45;
-    public static double DROPPER_DROP_PIXEL = -1.0;
+    public static double DROPPER_LOAD_PIXEL = 0.0;
+    public static double DROPPER_DROP_PIXEL = 1.0;
+    public static double WRIST_UP_POSITION = 0.0;
 
     static final double ARM_SPEED = 1.0;
 
@@ -146,17 +147,17 @@ public class MotionHardware {
         rightGripper = myOpMode.hardwareMap.get(Servo.class, "rightGripper");
         armMotor = myOpMode.hardwareMap.get(DcMotor.class, "armMotor");
         wrist = myOpMode.hardwareMap.servo.get("wristServo");
-        dropper = myOpMode.hardwareMap.servo.get("dropperServo");
+        dropper = myOpMode.hardwareMap.servo.get("dropper");
 
         runtime.reset();
         //moveArmMotorToPosition(-830, 1);
-        moveArmMotorToPosition(-830, 1);
-
+        wrist.setPosition(0.0);
+        sleep(1000);
         leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
 
         //Dropper and Arm/Gripper mode will load a pixel into the grippers
-        sleep(3000);
+        sleep(1000);
 
         leftGripper.setPosition(LEFT_GRIPPER_CLOSE); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_CLOSE); // Adjust the position value as needed
@@ -171,7 +172,7 @@ public class MotionHardware {
 
         if(globalConfig.getActiveDeliveryMode() == GlobalConfig.AUTONOMOUS_DELIVERY_MODES.DROPPER &&
         GlobalConfig.isAutonomous == true) {
-            dropper.setPosition(DROPPER_LOAD_PIXEL);
+            dropper.setPosition(DROPPER_DROP_PIXEL);
         }
 
         //moveArmMotorToPosition(-10, 1);
@@ -439,6 +440,12 @@ public class MotionHardware {
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
     }
+    public void dropperUp(){
+        dropper.setPosition(DROPPER_LOAD_PIXEL);
+    }
+    public void wristDown() {
+        wrist.setPosition(0.2);
+    }
 
     public void dropPixel() {
 
@@ -557,7 +564,7 @@ public class MotionHardware {
         //sleep(1000);
         //leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
         //rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
-        sleep(3000);
+        sleep(400);
         armMotor.setPower(0); // Stop the motor once the position is reached
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
@@ -656,9 +663,9 @@ public class MotionHardware {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     private void debugWait() {
         if (DEBUG) {
-            sleep(5000);
+            sleep(100);
         } else {
-            sleep(1000);
+            sleep(100);
         }
     }
 

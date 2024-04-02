@@ -53,27 +53,37 @@ public class AutoRR extends LinearOpMode {
                 case MIDDLE:
                     // Dropper Mode
                     robot.moveRobot(.5, -24, 10);
-                    robot.dropPixel();
-                    sleep(1000);
+                    robot.dropperUp();
                     robot.moveRobot(.5, 3, 10);
-                    robot.turnRobot(Direction.RIGHT, 20, .5, 10);
-                    robot.moveRobot(.5, -28, 10);
-                    robot.moveArmMotorToPosition(-4520, 10);
+                    robot.turnRobot(Direction.LEFT, 18.5, .5, 10);
+                    robot.moveRobot(.5, 31, 10);
+                    robot.moveArmMotorToPosition(-900, 10);
                     robot.dropPixelBackBoard();
-                    robot.moveRobot(.5, 4, 10);
-                    robot.strafeWithTime(.5, 270, 2);
+                    sleep(1000);
+                    robot.moveArmMotorToPosition(-1200,10);
+                    robot.moveRobot(.5, -6, 10);
+                    robot.turnRobot(Direction.LEFT, 18.5, .5, 10);
+                    robot.moveRobot(.5, 20, 10);
+                    robot.turnRobot(Direction.LEFT, 18.5, .5, 10);
+                    robot.moveRobot(.5, -8,10);
+                    //robot.moveArmMotorToPosition(-300,10);
+                    robot.wristDown();
                     robot.moveArmMotorToPosition(0, 1);
                     break;
                 case RIGHT:
                     //Dropper Mode
-                    robot.moveRobot(.5, -14, 10);
-                    robot.turnRobot(Direction.RIGHT, 6, .5, 10);
+                    robot.moveRobot(.5, -14, 2);
+                    sleep(1000);
+                    robot.turnRobot(Direction.RIGHT, 6, .5, 2);
+                    sleep(1000);
+                    robot.dropperUp();
+                    sleep(1000);
                     robot.dropPixel();
-                    robot.moveRobot(.5, 4, 10);
-                    robot.turnRobot(Direction.LEFT, 12, .5, 10);
-                    robot.moveRobot(.5, 3, 10);
-                    robot.turnRobot(Direction.LEFT, 5.5, .5, 10);
-                    robot.moveRobot(.5, 23, 10);
+                    robot.moveRobot(.5, 4, 2);
+                    robot.turnRobot(Direction.LEFT, 12, .5, 2);
+                    robot.moveRobot(.5, 3, 2);
+                    robot.turnRobot(Direction.LEFT, 5.5, .5, 2);
+                    robot.moveRobot(.5, 23, 2);
                     robot.moveArmMotorToPosition(-1200, 10);
                     robot.dropPixelBackBoard();
                     robot.moveRobot(.5, -4, 10);
@@ -83,6 +93,7 @@ public class AutoRR extends LinearOpMode {
                     //Dropper Mode
                     robot.moveRobot(.5, -16, 10);
                     robot.turnRobot(Direction.LEFT, 10, .5, 10);
+                    robot.dropperUp();
                     robot.moveRobot(.5, -8, 10);
                     robot.dropPixel();
                     robot.moveRobot(.5, 6, 10);
