@@ -29,6 +29,7 @@ import java.util.Locale;
  * Remove or comment out the @Disabled line to add this OpMode to the Driver Station OpMode list.
  */
 
+@Disabled
 @Config
 @Autonomous(name = "Auto w/Park LFM (by time) 3", group = "Auto")
 public class VisionLFM3 extends LinearOpMode {

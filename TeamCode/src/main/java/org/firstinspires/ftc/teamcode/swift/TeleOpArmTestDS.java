@@ -16,6 +16,7 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.shared.MotionHardware;
 
 
+@Disabled
 @TeleOp(name = "Drive Arm Test", group = "TeleOp2Driver")
 public class TeleOpArmTestDS extends LinearOpMode {
 

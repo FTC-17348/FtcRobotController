@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.McDonald;
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -12,6 +13,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.shared.MotionHardware;
 
+@Disabled
 @TeleOp(name = "Drive Pro 2", group = "TeleOp")
 @Config
 public class DrivePro2 extends LinearOpMode {

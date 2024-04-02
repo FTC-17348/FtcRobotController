@@ -12,6 +12,7 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.shared.GlobalConfig;
 import org.firstinspires.ftc.teamcode.shared.MotionHardware_Pixel_Dropper_Test_DS_DONT_USE_FOR_AUTON;
 
+@Disabled
 @TeleOp(name = "Pixel_Dropper_Test",group = "TeleOp2Driver")
 public class Pixel_Dropper_Test extends LinearOpMode{
     public GlobalConfig globalConfig = new GlobalConfig(GlobalConfig.AUTONOMOUS_DELIVERY_MODES.DROPPER);

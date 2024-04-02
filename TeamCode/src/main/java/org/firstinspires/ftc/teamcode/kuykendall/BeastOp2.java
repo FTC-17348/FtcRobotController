@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.kuykendall;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -7,6 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.teamcode.shared.MotionHardwareRuiming;
 
+@Disabled
 @TeleOp(name="BeastOp2", group="Test")
 public class BeastOp2 extends LinearOpMode {
     private MotionHardwareRuiming robot = new MotionHardwareRuiming();

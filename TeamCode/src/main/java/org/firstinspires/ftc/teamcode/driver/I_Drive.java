@@ -19,6 +19,7 @@ import com.qualcomm.robotcore.util.Range;
 import Auto.Left;
 
 
+@Disabled
 @TeleOp
 public class I_Drive extends LinearOpMode {
     //Declaring Hardware
