@@ -17,7 +17,7 @@ package org.firstinspires.ftc.teamcode.swift;
         import org.firstinspires.ftc.teamcode.shared.MotionHardware;
 
 
-@TeleOp(name = "AUTON_ARMPOS_NEW", group = "TeleOp2Driver")
+@TeleOp(name = "Drive2", group = "TeleOp2Driver")
 public class New_arm_auton_POS_TEST extends LinearOpMode {
     private final ElapsedTime runtime = new ElapsedTime();
     static final double INCREMENT = 0.01;     // amount to ramp motor each CYCLE_MS cycle
@@ -28,7 +28,7 @@ public class New_arm_auton_POS_TEST extends LinearOpMode {
     static final double ARM_SPEED = 1.0;
     static final int ARM_DROP_POS_AUTON = -5000;
     static final int ARM_DROP_POS_LOW = -4520;
-    static final int ARM_DROP_POS_HIGH = -3540;
+    static final int ARM_DROP_POS_HIGH = -3640;
     static final int ARM_DRIVE_POS = -830;
     static final int ARM_INTAKE_POS = 25;
     static final double LEFT_GRIPPER_OPEN = 0.90;
