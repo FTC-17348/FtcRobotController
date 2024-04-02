@@ -156,7 +156,7 @@ public class MotionHardware {
         rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
 
         //Dropper and Arm/Gripper mode will load a pixel into the grippers
-        sleep(3000);
+        sleep(2000);
 
         leftGripper.setPosition(LEFT_GRIPPER_CLOSE); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_CLOSE); // Adjust the position value as needed
@@ -293,7 +293,8 @@ public class MotionHardware {
         myOpMode.telemetry.addData("Currently at",  " at %7d :%7d :%7d :%7d",
                 frontLeftMotor.getCurrentPosition(), frontRightMotor.getCurrentPosition(), backLeftMotor.getCurrentPosition(), backRightMotor.getCurrentPosition());
         myOpMode.telemetry.update();
-        sleep(1000);
+
+        debugWait();
     }
 
     /////////////////////////////////////////////////lll////////////////////////////////////////////
@@ -557,14 +558,14 @@ public class MotionHardware {
         //sleep(1000);
         //leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
         //rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
-        sleep(3000);
+        //sleep(3000);
         armMotor.setPower(0); // Stop the motor once the position is reached
         armMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     public void dropPixelBackBoard() {
         wrist.setPosition(0.85);
-        sleep(1000);
+        sleep(800);
         leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
 
