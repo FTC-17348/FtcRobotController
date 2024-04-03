@@ -663,9 +663,9 @@ public class MotionHardware {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     private void debugWait() {
         if (DEBUG) {
-            sleep(100);
+            sleep(10);
         } else {
-            sleep(100);
+            sleep(10);
         }
     }
 
