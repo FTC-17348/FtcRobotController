@@ -90,7 +90,7 @@ public class AutoRR extends LinearOpMode {
                     sleep(500);
                     robot.moveArmMotorToPosition(-1200, 10);
                     robot.moveRobot(.5,-4,2);
-                    robot.strafeWithTime(.5,90,1.2);
+                    robot.strafeWithTime(.5,90,1.4);
                     robot.turnRobot(Direction.LEFT, 37, .65, 2);
 
                     break;
@@ -99,14 +99,14 @@ public class AutoRR extends LinearOpMode {
                     robot.turnRobot(Direction.LEFT, 18.5, .5, 2);
                     robot.moveRobot(.75,-6,10);
                     robot.dropperUp();
-                    robot.moveRobot(.5, 37, 2);
-                    robot.strafeWithTime(.5,270,.5);
+                    robot.moveRobot(.75, 37, 2);
+                    robot.strafeWithTime(.5,270,.75);
                     robot.moveArmMotorToPosition(-800, 10);
                     robot.dropPixelBackBoard();
                     sleep(500);
                     robot.moveArmMotorToPosition(-1200,10);
                     robot.moveRobot(.75, -4, 10);
-                    robot.strafeWithTime(.5, 270, 1.5);
+                    robot.strafeWithTime(.5, 270, 1.4);
                     robot.turnRobot(Direction.LEFT,37,.5,10);
                     robot.moveRobot(.75,-8,10);
                     //Dropper Mode

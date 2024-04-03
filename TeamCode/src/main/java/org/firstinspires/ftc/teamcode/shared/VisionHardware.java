@@ -36,7 +36,7 @@ public class VisionHardware {
 
     private ALLIANCE_POS alliancePos = null;
 
-    public static double detectWait = 6.0;
+    public static double detectWait = 3.0;
     private ElapsedTime runtime = new ElapsedTime();
     private TfodProcessor tfod;
     private VisionPortal visionPortal;
