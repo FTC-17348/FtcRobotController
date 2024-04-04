@@ -39,11 +39,21 @@ public class AutoRL extends LinearOpMode {
 
             switch(propPosition) {
                 case MIDDLE:
-                    robot.moveRobot(.75, -24, 10);
+                    robot.moveRobot(.7, -24, 10);
                     robot.dropperUp();
-                    robot.moveRobot(.75, 5, 10);
+                    robot.moveRobot(.7, 22, 10);
                     robot.turnRobot(Direction.LEFT, 18.5, .5, 10);
-                    sleep(1000);
+                    robot.moveRobot(.7, 70, 10);
+                    robot.strafeWithTime(.5,270,1.93);
+                    robot.moveRobot(.6, 9, 2);
+                    robot.moveArmMotorToPosition(-1100,2);
+                    robot.dropPixelBackBoard();
+                    sleep(400);
+                    robot.moveArmMotorToPosition(-1400,2);
+                    robot.moveRobot(.5,-4,2);
+                    robot.strafeWithTime(.5,270,1.45);
+                    robot.turnRobot(Direction.LEFT,37,.5,2);
+                    robot.moveRobot(.5,-5,2);
                     break;
                 case LEFT:
                     robot.moveRobot(.75, -24, 2);
