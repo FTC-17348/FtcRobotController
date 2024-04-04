@@ -12,8 +12,8 @@ import org.firstinspires.ftc.teamcode.shared.VisionHardware;
 import org.firstinspires.ftc.teamcode.shared.VisionHardware.PropPosition;
 
 @Config
-@Autonomous(name = "Auto - BA Left", group = "Auto")
-public class AutoBL extends LinearOpMode {
+@Autonomous(name = "Auto - BA Left No Back", group = "Auto")
+public class AutoBLJS extends LinearOpMode {
 
     public ALLIANCE_POS alliancePos = ALLIANCE_POS.LEFT;
 
@@ -41,42 +41,12 @@ public class AutoBL extends LinearOpMode {
                 case MIDDLE:
                     robot.moveRobot(.7, -24, 10);
                     robot.dropperUp();
-
-
-                    robot.moveRobot(.75, 5, 10);
-                    robot.turnRobot(Direction.RIGHT, 18.5, .5, 10);
-                    robot.moveRobot(.75, 31, 10);
-                    robot.moveArmMotorToPosition(-900, 10);
-                    robot.dropPixelBackBoard();
-                    sleep(500);
-                    robot.moveArmMotorToPosition(-1200,10);
-                    robot.moveRobot(.75, -6, 10);
-                    robot.strafeWithTime(.5,270,1.5);
-                    robot.turnRobot(Direction.LEFT, 37, .5, 10);
-                    robot.moveRobot(.5,-10,10);
-                    robot.wristDown();
-                    robot.moveArmMotorToPosition(0, 1);
                     break;
                 case LEFT:
                     robot.moveRobot(.75, -24, 2);
                     robot.turnRobot(Direction.LEFT, 18.5, .5, 2);
                     robot.moveRobot(.5, 2, 2);
                     robot.dropperUp();
-
-
-                    robot.moveArmMotorToPosition(-400, 10);
-                    robot.moveRobot(.75, -20, 2);
-                    robot.turnRobot(Direction.RIGHT,37,.65,2);
-                    robot.moveRobot(.6,8,2);
-                    robot.strafeWithTime(.6,90,.7);
-                    robot.moveArmMotorToPosition(-1000, 10);
-                    robot.moveRobot(.6,3.5,2);
-                    robot.dropPixelBackBoard();
-                    sleep(500);
-                    robot.moveArmMotorToPosition(-1200, 10);
-                    robot.moveRobot(.5,-4,2);
-                    robot.strafeWithTime(.5,90,1.4);
-                    robot.turnRobot(Direction.LEFT, 37, .65, 2);
                     break;
                 default:
                     //Dropper Mode
@@ -84,21 +54,9 @@ public class AutoBL extends LinearOpMode {
                     robot.turnRobot(Direction.RIGHT, 18.5, .5, 2);
                     robot.moveRobot(.75,-6,2);
                     robot.dropperUp();
-
-
-                    robot.moveRobot(.75, 37, 2);
-                    robot.strafeWithTime(.5,270,.75);
-                    robot.moveArmMotorToPosition(-800, 10);
-                    robot.dropPixelBackBoard();
-                    sleep(500);
-                    robot.moveArmMotorToPosition(-1200,10);
-                    robot.moveRobot(.75, -4, 10);
-                    robot.strafeWithTime(.5, 270, 1.4);
-                    robot.turnRobot(Direction.LEFT,37,.5,10);
-                    robot.moveRobot(.75,-8,10);
                     break;
             }
-            
+
             sleep(20);
             break;
         }

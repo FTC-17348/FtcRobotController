@@ -294,7 +294,7 @@ public class MotionHardware {
         myOpMode.telemetry.addData("Currently at",  " at %7d :%7d :%7d :%7d",
                 frontLeftMotor.getCurrentPosition(), frontRightMotor.getCurrentPosition(), backLeftMotor.getCurrentPosition(), backRightMotor.getCurrentPosition());
         myOpMode.telemetry.update();
-        sleep(1000);
+        sleep(250);
     }
 
     /////////////////////////////////////////////////lll////////////////////////////////////////////
@@ -571,7 +571,7 @@ public class MotionHardware {
 
     public void dropPixelBackBoard() {
         wrist.setPosition(0.85);
-        sleep(1000);
+        sleep(500);
         leftGripper.setPosition(LEFT_GRIPPER_OPEN); // Adjust the position value as needed
         rightGripper.setPosition(RIGHT_GRIPPER_OPEN); // Adjust the position value as needed
 
