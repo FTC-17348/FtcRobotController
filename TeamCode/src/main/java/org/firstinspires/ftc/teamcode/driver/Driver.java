@@ -25,8 +25,8 @@ public class Driver extends LinearOpMode {
     static final double MAX_REV = -1.0;     // Maximum REV power applied to motor
 
     static final double ARM_SPEED = 1.0;
-    static final int ARM_DROP_POS_LOW = -4520;
-    static final int ARM_DROP_POS_HIGH = -3540;
+    static final int ARM_DROP_POS_LOW = -5363; //was 4520
+    static final int ARM_DROP_POS_HIGH = -3740;
     static final int ARM_DRIVE_POS = -830;
     static final int ARM_INTAKE_POS = 25;
     static final double LEFT_GRIPPER_OPEN = 0.90;
@@ -36,10 +36,10 @@ public class Driver extends LinearOpMode {
 
     //was -0.5
     static final double RIGHT_GRIPPER_CLOSE = -1.1;
-    static final double WRIST_DROP_POS_LOW = 0.85;
-    static final double WRIST_DROP_POS_HIGH = 01;
+    static final double WRIST_DROP_POS_LOW = 0.65;
+    static final double WRIST_DROP_POS_HIGH = 0.80;
     static final double WRIST_INTAKE_POS = 0.3;
-    static final double WRIST_FORWARD_DROP_POS_HIGH = 0.62; //was 73
+    static final double WRIST_FORWARD_DROP_POS_HIGH = 0.52; //was 73
     static final double WRIST_FORWARD_DROP_POS_LOW = 0.65;
     static final double DRONE_LAUNCH = 0.8;
     static final double DRONE_SECURE = 0.3;
