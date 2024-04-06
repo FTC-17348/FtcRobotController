@@ -43,7 +43,7 @@ public class BeastDrive extends OpMode {
     // Gripper positions
     public static double LEFT_SERVO_OPEN = 0.35;
     public static double LEFT_SERVO_CLOSE = 0.0;
-    public static double RIGHT_SERVO_OPEN = 0.25;
+    public static double RIGHT_SERVO_OPEN = 0.23;
     public static double RIGHT_SERVO_CLOSE = 0.3;
 
     // Constants for the wider gripper open position
@@ -51,9 +51,9 @@ public class BeastDrive extends OpMode {
     public static double RIGHT_SERVO_WIDE_OPEN = 0.5; // Adjust as needed
 
     // Wrist positions
-    public static double PICKUP_POSITION = 0.2;
-    public static double FRONTDROP_POSITION = 0.8; // Placeholder value, adjust as needed
-    public static double DROPOFF_POSITION = 1;
+    public static double PICKUP_POSITION = 0.175;
+    public static double FRONTDROP_POSITION = 0.65; // Placeholder value, adjust as needed
+    public static double DROPOFF_POSITION = .77;
     public static double PICKUP_POSITION2 = .8;
 
     // 180 turn constants

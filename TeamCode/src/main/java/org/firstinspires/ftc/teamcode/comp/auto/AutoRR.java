@@ -52,10 +52,9 @@ public class AutoRR extends LinearOpMode {
             switch(propPosition) {
                 case MIDDLE:
                     // Dropper Mode
+                    robot.dropperDown();
                     robot.moveRobot(.75, -24, 10);
                     robot.dropperUp();
-
-
                     robot.moveRobot(.75, 5, 10);
                     robot.turnRobot(Direction.LEFT, 18.5, .5, 10);
                     robot.moveRobot(.75, 31, 10);
@@ -72,12 +71,11 @@ public class AutoRR extends LinearOpMode {
                     break;
                 case RIGHT:
                     //Dropper Mode
+                    robot.dropperDown();
                     robot.moveRobot(.75, -24, 2);
                     robot.turnRobot(Direction.RIGHT, 18.5, .65, 2);
                     robot.moveRobot(.5, 2, 2);
                     robot.dropperUp();
-
-
                     robot.moveArmMotorToPosition(-400, 10);
                     robot.moveRobot(.75, -20, 2);
                     robot.turnRobot(Direction.RIGHT,37,.65,2);
@@ -94,20 +92,19 @@ public class AutoRR extends LinearOpMode {
 
                     break;
                 default:
+                    robot.dropperDown();
                     robot.moveRobot(.75, -24, 2);
                     robot.turnRobot(Direction.LEFT, 18.5, .5, 2);
                     robot.moveRobot(.75,-6,10);
                     robot.dropperUp();
-
-
-                    robot.moveRobot(.75, 37, 2);
-                    robot.strafeWithTime(.5,270,.75);
+                    robot.moveRobot(.75, 3, 2);
+                    robot.strafeWithTime(.5,270,.64);
                     robot.moveArmMotorToPosition(-800, 10);
                     robot.dropPixelBackBoard();
                     sleep(500);
                     robot.moveArmMotorToPosition(-1200,10);
                     robot.moveRobot(.75, -4, 10);
-                    robot.strafeWithTime(.5, 270, 1.4);
+                    robot.strafeWithTime(.5, 270, 1.6);
                     robot.turnRobot(Direction.LEFT,37,.5,10);
                     robot.moveRobot(.75,-8,10);
             }

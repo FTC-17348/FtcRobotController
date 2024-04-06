@@ -39,6 +39,7 @@ public class AutoRL extends LinearOpMode {
 
             switch(propPosition) {
                 case MIDDLE:
+                    robot.dropperDown();
                     robot.moveRobot(.7, -24, 10);
                     robot.dropperUp();
                     robot.moveRobot(.7, 22, 10);
@@ -56,6 +57,7 @@ public class AutoRL extends LinearOpMode {
                     robot.moveRobot(.5,-5,2);
                     break;
                 case LEFT:
+                    robot.dropperDown();
                     robot.moveRobot(.75, -24, 2);
                     robot.turnRobot(Direction.LEFT, 18.5, .5, 2);
                     robot.moveRobot(.5, 2, 2);
@@ -75,6 +77,7 @@ public class AutoRL extends LinearOpMode {
                     break;
                 default:
                     //Dropper Mode
+                    robot.dropperDown();
                     robot.moveRobot(.6, -24, 2);
                     robot.turnRobot(Direction.RIGHT, 18.5, .5, 2);
                     robot.moveRobot(.75,-6,2);

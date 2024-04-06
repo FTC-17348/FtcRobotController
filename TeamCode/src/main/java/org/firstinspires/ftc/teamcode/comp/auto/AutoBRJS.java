@@ -40,17 +40,20 @@ public class AutoBRJS extends LinearOpMode {
             switch(propPosition) {
                 case MIDDLE:
                     // Dropper Mode
+                    robot.dropperDown();
                     robot.moveRobot(.75, -24, 10);
                     robot.dropperUp();
                     break;
                 case RIGHT:
                     //Dropper Mode
+                    robot.dropperDown();
                     robot.moveRobot(.75, -24, 2);
                     robot.turnRobot(Direction.RIGHT, 18.5, .65, 2);
                     robot.moveRobot(.5, 2, 2);
                     robot.dropperUp();
                     break;
                 default:
+                    robot.dropperDown();
                     robot.moveRobot(.75, -24, 2);
                     robot.turnRobot(Direction.LEFT, 18.5, .5, 2);
                     robot.moveRobot(.75,-6,10);
