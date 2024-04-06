@@ -28,7 +28,7 @@ public class New_arm_auton_POS_TEST extends LinearOpMode {
     static final double ARM_SPEED = 1.0;
     static final int ARM_DROP_POS_AUTON = -5000;
     static final int ARM_DROP_POS_LOW = -4520;
-    static final int ARM_DROP_POS_HIGH = -3640;
+    static final int ARM_DROP_POS_HIGH = -3540;
     static final int ARM_DRIVE_POS = -830;
     static final int ARM_INTAKE_POS = 25;
     static final double LEFT_GRIPPER_OPEN = 0.90;
